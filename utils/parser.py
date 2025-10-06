@@ -51,7 +51,10 @@ def accuracy(df: pd.DataFrame) -> float:
     return count / len(df)
 
 def exceed_reasoning(df: pd.DataFrame) -> float:
-    return len(df[df["total_tokens"] == 16484]) / len(df)
+    return len(df[df["total_tokens"] == 32868])
 
 def num_no_compress(df: pd.DataFrame, budget: int) -> int:
     return len(df[df["total_tokens"] < budget])
+
+def average_generation_length(df: pd.DataFrame) -> int:
+    return df["output_tokens"].mean()
